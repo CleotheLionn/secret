@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<style>
+body {
+  background-image: url("space.png");
+  background-size: 400px 400px;
+}
+hr  {
+	background-color: white;
+	border-color: black;
+table, th, td {
+  border: 1px white;
+}
+</style>
+<head>
+  <title>Welcome to my Page!</title>
+  <script language="JavaScript" src="dynlib.js"></script>
+<script language="JavaScript" src="bouncingimages.js"></script>
+</head>
+<body onLoad="javascript:loadBouncingImages();">
+<p  align="center">
+  <img src="world.gif" style="width:200px;height:200px;">
+</p>
+<table align="center" style="background-color:white;" border="black" cellpadding="5px">
+  <tr>
+    <td><h3>Home</h3></td>
+    <td><a href="https://cleothelionn.github.io/gallery"><h3>Gallery</h3></a></td>
+    <td><a href="Secret.html"><h3>Secret...</h3></a></td>
+  </tr>
+</table>
+<h1 style="color:white;" align="center"><i> Hi, I'm (name)!</i></h1>
+<center><img src="welcome.png" alt="a picture of me" align="center" width="400px" height="400px"></center><h1 style="color:white;" align="center"></center>
+<h2 style="color:white;" align="center">Pleased to meet you ~</h2>
+<br>
+<table style="background-color:white;" border="black" cellpadding="5px" align="center">
+<tr>
+<td><h1>Personality</h1></td>
+<td><h1>Likes</h1></td>
+<td><h1>Dislikes</h1></td>
+</tr>
+<tr>
+<td><img src="dog.gif" style="width:75px;height:75px;"></td>
+<td><img src="heart.gif" style="width:75px;height:75px;"></td>
+<td><img src="broken heart.gif" style="width:75px;height:75px;"></td>
+</tr>
+<tr>
+<td>I am very kind and love my family.<br> I enjoy playing with my siblings, especially tetherball or video games.<br> I enjoy cooking or baking sometimes if I feel inspired. <br>I prefer sweet over savory.</td>
+<td> 
+<ul>
+<li>Cats</li>
+<li>Video Games</li>
+<li>Art</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>Spiders</li>
+<li>Most Vegetables</li>
+<li>Stinky Stuff</li>
+</ul>
+</td>
+</table>
+<!-- graph code begins here-->
+<div align="center">
+<script type="text/javascript" src="wz_jsgraphics.js"></script>
+<script type="text/javascript" src="pie.js">
+
+<!-- Pie Graph script-By Balamurugan S http://www.sbmkpm.com/ //-->
+<!-- Script featured/ available at Dynamic Drive code: http://www.dynamicdrive.com //-->
+
+</script>
+
+<div id="pieCanvas" style="overflow: auto; position:relative;height:350px;width:390px;"></div>
+<div style="font-color:white;">
+<script type="text/javascript">
+var p = new pie();
+p.add("Cute",100);
+p.add("Kind",200);
+p.add("Awesome",150);
+p.add("Smart",120);
+p.render("pieCanvas", "Pie Graph")
+
+</script>
+</div>
+</div>
+<!-- graph code ends here-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<script language="JavaScript">
+
+
+
+//Comment trail script- By Kurt (kurt.grigg@virgin.net)
+
+//Script featured on Dynamic Drive
+
+//Visit http://www.dynamicdrive.com for this script and more
+
+
+
+colours=new Array('#ff0000','#00ff00','#ffffff','#ff00ff','#ffa500','#ffff00','#00ff00','#ffffff','ff00ff')
+
+n = 10;
+
+y = 0;
+
+x = 0;
+
+n6=(document.getElementById&&!document.all);
+
+ns=(document.layers);
+
+ie=(document.all);
+
+d=(ns||ie)?'document.':'document.getElementById("';
+
+a=(ns||n6)?'':'all.';
+
+n6r=(n6)?'")':'';
+
+s=(ns)?'':'.style';
+
+if (ns){
+
+for (i = 0; i < n; i++)
+
+document.write('<layer name="dots'+i+'" top=0 left=0 width='+i/2+' height='+i/2+' bgcolor=#ff0000></layer>');
+
+}
+
+if (ie)
+
+document.write('<div id="con" style="position:absolute;top:0px;left:0px"><div style="position:relative">');
+
+if (ie||n6){
+
+for (i = 0; i < n; i++)
+
+document.write('<div id="dots'+i+'" style="position:absolute;top:0px;left:0px;width:'+i/2+'px;height:'+i/2+'px;background:#ff0000;font-size:'+i/2+'"></div>');
+
+}
+
+if (ie)
+
+document.write('</div></div>');
+
+(ns||n6)?window.captureEvents(Event.MOUSEMOVE):0;
+
+function Mouse(evnt){
+
+y = (ns||n6)?evnt.pageY+4 - window.pageYOffset:event.y+4;
+
+x = (ns||n6)?evnt.pageX+1:event.x+1;
+
+}
+
+(ns)?window.onMouseMove=Mouse:document.onmousemove=Mouse;
+
+function animate(){
+
+o=(ns||n6)?window.pageYOffset:0;
+
+if (ie)con.style.top=document.body.scrollTop + 'px';
+
+for (i = 0; i < n; i++){
+
+var temp1 = eval(d+a+"dots"+i+n6r+s);
+
+
+
+randcolours = colours[Math.floor(Math.random()*colours.length)];
+
+(ns)?temp1.bgColor = randcolours:temp1.background = randcolours; 
+
+if (i < n-1){
+
+ var temp2 = eval(d+a+"dots"+(i+1)+n6r+s);
+
+ temp1.top = parseInt(temp2.top) + 'px';
+
+ temp1.left = parseInt(temp2.left) + 'px';
+
+ } 
+
+else{
+
+ temp1.top = y+o + 'px';
+
+ temp1.left = x + 'px';
+
+ }
+
+}
+
+setTimeout("animate()",15);
+
+}
+
+animate();
+
+// -->
+
+</script>
+</body>
+</html>
+

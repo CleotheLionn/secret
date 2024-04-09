@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<style>
+body {
+  background-image: url("space.PNG");
+  background-size: 400px 400px;
+}
+hr  {
+	background-color: white;
+	border-color: black;
+table, th, td {
+  border: 1px white;
+}
+</style>
+<head>
+  <title>Welcome to my Page!</title>
+  <script language="JavaScript" src="dynlib.js"></script>
+<script language="JavaScript" src="bouncingimages.js"></script>
+</head>
+<body onLoad="javascript:loadBouncingImages();">
+<p  align="center">
+  <img src="art.gif" style="width:200px;height:200px;">
+</p>
+<table align="center" style="background-color:white;" border="black" cellpadding="5px">
+  <tr>
+    <td><a href="https://cleothelionn/github.io"><h3>Home</h3></td>
+    <td><h3>Gallery</h3></a></td>
+    <td><a href="Secret.html"><h3>Secret...</h3></a></td>
+  </tr>
+</table>
+<h1 style="color:white;" align="center"><i> Welcome to my Gallery!</i></h1>
+<h2 style="color:white;" align="center">Here you can see all of my artwork ~</h2>
+<br>
+<center><img src="esme ref.png" alt="a picture of me" align="center" width="600px" height="400px"></center><h1 style="color:white;" align="center"></center>
+<center><img src="artwork1.jpg" alt="a picture of me" align="center" width="400px" height="600px"></center><h1 style="color:white;" align="center"></center>
+<center><img src="artwork2.jpg" alt="a picture of me" align="center" width="400px" height="500px"></center><h1 style="color:white;" align="center"></center>
+<center><img src="artwork3.jpg" alt="a picture of me" align="center" width="400px" height="400px"></center><h1 style="color:white;" align="center"></center>
+<center><img src="artwork4.png" alt="a picture of me" align="center" width="400px" height="400px"></center><h1 style="color:white;" align="center"></center>
+<center><img src="artwork5.jpg" alt="a picture of me" align="center" width="400px" height="400px"></center><h1 style="color:white;" align="center"></center>
+<center><img src="artwork6.jpg" alt="a picture of me" align="center" width="400px" height="400px"></center><h1 style="color:white;" align="center"></center>
+<center><img src="artwork7.jpg" alt="a picture of me" align="center" width="400px" height="400px"></center><h1 style="color:white;" align="center"></center>
+<center><img src="artwork8.jpg" alt="a picture of me" align="center" width="400px" height="400px"></center><h1 style="color:white;" align="center"></center>
+
+</td>
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<script language="JavaScript">
+
+
+
+//Comment trail script- By Kurt (kurt.grigg@virgin.net)
+
+//Script featured on Dynamic Drive
+
+//Visit http://www.dynamicdrive.com for this script and more
+
+
+
+colours=new Array('#ff0000','#00ff00','#ffffff','#ff00ff','#ffa500','#ffff00','#00ff00','#ffffff','ff00ff')
+
+n = 10;
+
+y = 0;
+
+x = 0;
+
+n6=(document.getElementById&&!document.all);
+
+ns=(document.layers);
+
+ie=(document.all);
+
+d=(ns||ie)?'document.':'document.getElementById("';
+
+a=(ns||n6)?'':'all.';
+
+n6r=(n6)?'")':'';
+
+s=(ns)?'':'.style';
+
+if (ns){
+
+for (i = 0; i < n; i++)
+
+document.write('<layer name="dots'+i+'" top=0 left=0 width='+i/2+' height='+i/2+' bgcolor=#ff0000></layer>');
+
+}
+
+if (ie)
+
+document.write('<div id="con" style="position:absolute;top:0px;left:0px"><div style="position:relative">');
+
+if (ie||n6){
+
+for (i = 0; i < n; i++)
+
+document.write('<div id="dots'+i+'" style="position:absolute;top:0px;left:0px;width:'+i/2+'px;height:'+i/2+'px;background:#ff0000;font-size:'+i/2+'"></div>');
+
+}
+
+if (ie)
+
+document.write('</div></div>');
+
+(ns||n6)?window.captureEvents(Event.MOUSEMOVE):0;
+
+function Mouse(evnt){
+
+y = (ns||n6)?evnt.pageY+4 - window.pageYOffset:event.y+4;
+
+x = (ns||n6)?evnt.pageX+1:event.x+1;
+
+}
+
+(ns)?window.onMouseMove=Mouse:document.onmousemove=Mouse;
+
+function animate(){
+
+o=(ns||n6)?window.pageYOffset:0;
+
+if (ie)con.style.top=document.body.scrollTop + 'px';
+
+for (i = 0; i < n; i++){
+
+var temp1 = eval(d+a+"dots"+i+n6r+s);
+
+
+
+randcolours = colours[Math.floor(Math.random()*colours.length)];
+
+(ns)?temp1.bgColor = randcolours:temp1.background = randcolours; 
+
+if (i < n-1){
+
+ var temp2 = eval(d+a+"dots"+(i+1)+n6r+s);
+
+ temp1.top = parseInt(temp2.top) + 'px';
+
+ temp1.left = parseInt(temp2.left) + 'px';
+
+ } 
+
+else{
+
+ temp1.top = y+o + 'px';
+
+ temp1.left = x + 'px';
+
+ }
+
+}
+
+setTimeout("animate()",15);
+
+}
+
+animate();
+
+// -->
+
+</script>
+</body>
+</html>
+
